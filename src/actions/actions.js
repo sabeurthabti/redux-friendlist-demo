@@ -6,6 +6,12 @@ export function addFriend(name) {
     name
   };
 }
+export function changeLook(name) {
+  return {
+    type: types.CHANGE_LOOK,
+    name
+  };
+}
 
 export function deleteFriend(id) {
   return {

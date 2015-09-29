@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 
 import { createStore, renderDevTools } from '../store_enhancers/devTools';
 
-import FriendListApp from './FriendListApp';
+import AppView from './AppView.js';
 import * as reducers from '../reducers';
 
 const reducer = combineReducers(reducers);
@@ -15,7 +15,7 @@ export default class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          {() => <FriendListApp /> }
+          {() => <AppView /> }
         </Provider>
 
         {renderDevTools(store)}
