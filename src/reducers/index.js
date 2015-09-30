@@ -1,25 +1,28 @@
-import * as types from '../constants/ActionTypes';
-import omit from 'lodash/object/omit';
-import assign from 'lodash/object/assign';
-import mapValues from 'lodash/object/mapValues';
+import { combineReducers } from 'redux';
+import { CHANGE_LOOK } from '../actions';
 
 const initialState = {
   multipleOutFitLook: 1
 };
 
-export default function friends(state = initialState, action) {
+function look(state = initialState, action) {
   switch (action.type) {
-
-
-    case types.CHANGE_LOOK:
-     const newLookNumber = action.multipleOutFitLook;
+    case CHANGE_LOOK:
       return {
         ...state,
-        multipleOutFitLook: newLookNumber
-
-      }
-
+        multipleOutFitLook: action.look
+      };
     default:
       return state;
   }
 }
+
+// other reducers
+function friends(state = []/*, action*/) {
+  return state;
+}
+
+export default combineReducers({
+  look,
+  friends
+});
